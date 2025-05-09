@@ -1,1 +1,1 @@
-# mlops-innovate-analytics
+# MLOps Project for Innovate Analytics Inc.
