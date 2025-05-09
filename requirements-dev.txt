@@ -1,0 +1,7 @@
+black
+flake8
+pytest
+dvc
+apache-airflow
+mlflow
+scikit-learn
