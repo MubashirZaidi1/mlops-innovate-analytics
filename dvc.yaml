@@ -1,0 +1,8 @@
+stages:
+  clean_data:
+    cmd: python scripts/clean_data.py
+    deps:
+    - airflow/data/raw/raw_data.csv
+    - scripts/clean_data.py
+    outs:
+    - airflow/data/processed/cleaned_data.csv
