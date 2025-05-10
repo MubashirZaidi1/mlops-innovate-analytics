@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mlops-model-deployment
+  labels:
+    app: mlops-model
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mlops-model
+  template:
+    metadata:
+      labels:
+        app: mlops-model
+    spec:
+      containers:
+      - name: mlops-model
+        image: mubashirzaidi/mlops-model:latest  # 🔁 Your Docker Hub image
+        ports:
+        - containerPort: 5000
