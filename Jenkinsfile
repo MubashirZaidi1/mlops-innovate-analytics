@@ -15,7 +15,7 @@ pipeline {
 
     stage('Push to Docker Hub') {
       steps {
-        echo '🚀 Pushing Docker image to Docker Hub...'
+        echo 'Pushing Docker image to Docker Hub...'
         withCredentials([usernamePassword(credentialsId: 'dockerhub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
           sh '''
             echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
@@ -28,10 +28,10 @@ pipeline {
 
   post {
     success {
-      echo '✅ Docker image built and pushed successfully!'
+      echo 'Docker image built and pushed successfully!'
     }
     failure {
-      echo '❌ Build or push failed!'
+      echo 'Build or push failed!'
     }
   }
 }
