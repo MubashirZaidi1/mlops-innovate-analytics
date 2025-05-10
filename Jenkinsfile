@@ -2,13 +2,13 @@ pipeline {
   agent any
 
   environment {
-    DOCKER_IMAGE = 'mubashirzaidi/mlops-model:latest'  // 🔁 Replace with your Docker Hub image name
+    DOCKER_IMAGE = 'mubashirzaidi/mlops-model:latest'
   }
 
   stages {
     stage('Build Docker Image') {
       steps {
-        echo '🔧 Building Docker image...'
+        echo 'Building Docker image...'
         sh 'docker build -t $DOCKER_IMAGE .'
       }
     }
