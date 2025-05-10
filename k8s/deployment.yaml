@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: mlops-model
-        image: mubashirzaidi/mlops-model:latest  # 🔁 Your Docker Hub image
+        image: mubashirzaidi/mlops-model:latest
         ports:
         - containerPort: 5000
