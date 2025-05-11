@@ -9,4 +9,4 @@ COPY mlflow/models/random_forest.pkl ./mlflow/models/
 COPY app/main.py ./main.py
 
 EXPOSE 5000
-CMD ["python", "main.py"]
+CMD ["python", "main.py", "--host=0.0.0.0","--port=5000"]
