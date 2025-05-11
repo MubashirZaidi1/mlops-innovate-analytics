@@ -4,17 +4,20 @@ import numpy as np
 import joblib
 import os
 
+
 @pytest.fixture
 def client():
     app.config['TESTING'] = True
     with app.test_client() as client:
         yield client
 
+
 def test_home_endpoint(client):
     """Test the home endpoint returns correct message"""
     response = client.get('/')
     assert response.status_code == 200
     assert b'ML model server is running!' in response.data
+
 
 def test_predict_endpoint_valid_data(client):
     """Test predict endpoint with valid data"""
@@ -30,6 +33,7 @@ def test_predict_endpoint_valid_data(client):
     assert 'prediction' in data
     assert isinstance(data['prediction'], int)
 
+
 def test_predict_endpoint_invalid_data(client):
     """Test predict endpoint with invalid data"""
     # Test with missing features
@@ -44,6 +48,7 @@ def test_predict_endpoint_invalid_data(client):
                           content_type='application/json')
     assert response.status_code == 400
 
+
 def test_predict_endpoint_wrong_feature_size(client):
     """Test predict endpoint with wrong feature size"""
     # Create features with wrong size (adjust based on your model's expected input)
@@ -53,6 +58,7 @@ def test_predict_endpoint_wrong_feature_size(client):
                           json={'features': wrong_size_features},
                           content_type='application/json')
     assert response.status_code == 400
+
 
 def test_model_loading():
     """Test that the model file exists and can be loaded"""
