@@ -18,6 +18,7 @@ def test_home_endpoint(client):
     assert response.status_code == 200
     assert b'ML model server is running!' in response.data
 
+
 def test_model_loading():
     """Test that the model file exists and can be loaded"""
     model_path = os.path.join("mlflow", "models", "random_forest.pkl")
