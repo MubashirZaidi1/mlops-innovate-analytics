@@ -1,6 +1,6 @@
 import pytest
 from app.main import app
-import numpy as np
+# import numpy as np
 import joblib
 import os
 
